@@ -1,4 +1,4 @@
- -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Configuration file for the Sphinx documentation builder.
 # See https://www.sphinx-doc.org/en/master/usage/configuration.html
