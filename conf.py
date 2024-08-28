@@ -69,8 +69,7 @@ nb_execution_excludepatterns = [
 exclude_patterns = [
     "jupyter_execute/*",
     ".jupyter_cache",
-    "**/README.md",
-    "**/.venv/*",
+    "*.venv",
 ]
 
 autodoc_member_order = "groupwise"
