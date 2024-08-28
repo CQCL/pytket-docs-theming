@@ -17,7 +17,7 @@ extensions = [
     "sphinx_copybutton",
     "enum_tools.autoenum",
     "sphinx.ext.autosectionlabel",
-    # "myst_nb",
+    "myst_nb",
 ]
 
 autosectionlabel_prefix_document = True
