@@ -6,7 +6,7 @@ Unfamiliar with submodules? Check out this [github blog post](https://github.blo
 
 1. First, update/initialise the `pytket-docs-theming` submodule. (Make sure you are in the `docs` directory when you do this).
 
-If you are doing this time, the submodule can be added as follows
+If you are doing this for the first time, the submodule can be added as follows
 
 ```shell
 cd docs
