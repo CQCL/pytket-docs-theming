@@ -4,9 +4,11 @@ The configuration for the docs build is shared across different repositories by 
 
 Unfamiliar with submodules? Check out this [github blog post](https://github.blog/open-source/git/working-with-submodules/). 
 
+In what follows we assume that there is a `docs` folder in the root of the extensions repository containing the docs source files and the `install.sh` and `build-docs.sh` scripts.
+
 1. First, update/initialise the `pytket-docs-theming` submodule. (Make sure you are in the `docs` directory when you do this).
 
-If you are doing this time, the submodule can be added as follows
+If you are doing this for the first time, the submodule can be added as follows
 
 ```shell
 cd docs
