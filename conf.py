@@ -73,6 +73,7 @@ exclude_patterns = [
     "*.venv",
     "README.md",
     "**/README.md",
+    ".jupyter_cache",
 ]
 
 autodoc_member_order = "groupwise"
