@@ -25,6 +25,9 @@ autosectionlabel_prefix_document = True
 
 myst_enable_extensions = ["dollarmath", "html_image", "attrs_inline"]
 
+#https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#auto-generated-header-anchors
+myst_heading_anchors = 3
+
 html_theme_options = {}
 
 html_theme = "furo"
