@@ -49,6 +49,11 @@ intersphinx_mapping = {
     "pytket-qujax": (ext_url + "pytket-qujax/", None),
     "pytket-cirq": (ext_url + "pytket-cirq/", None),
     "pytket-braket": (ext_url + "pytket-braket/", None),
+    "pytket-pyquil": (ext_url + "pytket-pyquil/", None),
+    "pytket-pysimplex": (ext_url + "pytket-pysimplex/", None),
+    "pytket-projectq": (ext_url + "pytket-projectq/", None),
+    "pytket-qulacs": (ext_url + "pytket-qulacs/", None),
+    "pytket-iqm": (ext_url + "pytket-iqm/", None),
     "sympy": ("https://docs.sympy.org/latest/", None),
 }
 
