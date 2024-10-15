@@ -41,8 +41,9 @@ ext_url = pytketdoc_base + "extensions/"
 
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
-    "pytket": (pytketdoc_base + "api-docs/", None),
+    "sympy": ("https://docs.sympy.org/latest/", None),
     "qiskit": ("https://docs.quantum.ibm.com/api/qiskit", None),
+    "pytket": (pytketdoc_base + "api-docs/", None),
     "pytket-qiskit": (ext_url + "pytket-qiskit/", None),
     "pytket-quantinuum": (ext_url + "pytket-quantinuum/", None,),
     "pytket-pennylane": (ext_url + "pytket-pennylane/", None),
@@ -54,7 +55,7 @@ intersphinx_mapping = {
     "pytket-projectq": (ext_url + "pytket-projectq/", None),
     "pytket-qulacs": (ext_url + "pytket-qulacs/", None),
     "pytket-iqm": (ext_url + "pytket-iqm/", None),
-    "sympy": ("https://docs.sympy.org/latest/", None),
+    "pytket-stim": (ext_url + "pytket-stim/", None),
 }
 
 
