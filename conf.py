@@ -61,8 +61,9 @@ intersphinx_mapping = {
 
 nb_execution_mode = "cache"
 
+nb_execution_timeout = 120
+
 nb_execution_excludepatterns = [
-    "examples/backends/Forest_portability_example.ipynb",
     "examples/backends/backends_example.ipynb",
     "examples/backends/qiskit_integration.ipynb",
     "examples/backends/comparing_simulators.ipynb",
@@ -71,7 +72,6 @@ nb_execution_excludepatterns = [
     "examples/algorithms_and_protocols/pytket-qujax-classification.ipynb",
     "examples/algorithms_and_protocols/pytket-qujax_qaoa.ipynb",
     "examples/algorithms_and_protocols/ucc_vqe.ipynb",
-    "examples/algorithms_and_protocols/spam_example.ipynb",
     "examples/algorithms_and_protocols/entanglement_swapping.ipynb",
 ]
 
