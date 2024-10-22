@@ -23,7 +23,7 @@ extensions = [
 
 autosectionlabel_prefix_document = True
 
-myst_enable_extensions = ["dollarmath", "html_image", "attrs_inline"]
+myst_enable_extensions = ["dollarmath", "html_image", "attrs_inline", "colon_fence"]
 
 #https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#auto-generated-header-anchors
 myst_heading_anchors = 3
