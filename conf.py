@@ -59,7 +59,20 @@ intersphinx_mapping = {
 }
 
 
-nb_execution_mode = "cache"
+import os
+
+# Get the current working directory
+current_directory = os.getcwd()
+
+# Get the parent directory (absolute path)
+parent_directory = os.path.dirname(current_directory)
+
+repo_name =  os.path.split(parent_directory)[1]
+
+if repo_name == "pytket-cutensornet":
+    nb_execution_mode = "off"
+else:
+    nb_execution_mode = "cache"
 
 nb_execution_timeout = 120
 
