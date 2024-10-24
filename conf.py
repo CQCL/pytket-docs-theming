@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 
 # Configuration file for the Sphinx documentation builder.
 # See https://www.sphinx-doc.org/en/master/usage/configuration.html
@@ -25,7 +26,7 @@ autosectionlabel_prefix_document = True
 
 myst_enable_extensions = ["dollarmath", "html_image", "attrs_inline", "colon_fence"]
 
-#https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#auto-generated-header-anchors
+# https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#auto-generated-header-anchors
 myst_heading_anchors = 3
 
 html_theme_options = {}
@@ -45,7 +46,10 @@ intersphinx_mapping = {
     "qiskit": ("https://docs.quantum.ibm.com/api/qiskit", None),
     "pytket": (pytketdoc_base + "api-docs/", None),
     "pytket-qiskit": (ext_url + "pytket-qiskit/", None),
-    "pytket-quantinuum": (ext_url + "pytket-quantinuum/", None,),
+    "pytket-quantinuum": (
+        ext_url + "pytket-quantinuum/",
+        None,
+    ),
     "pytket-pennylane": (ext_url + "pytket-pennylane/", None),
     "pytket-qujax": (ext_url + "pytket-qujax/", None),
     "pytket-cirq": (ext_url + "pytket-cirq/", None),
@@ -58,8 +62,23 @@ intersphinx_mapping = {
     "pytket-stim": (ext_url + "pytket-stim/", None),
 }
 
+# Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
+# -------------------------------------------------------------------
 
-nb_execution_mode = "cache"
+# Get the current working directory
+current_directory = os.getcwd()
+
+# Get the parent directory (absolute path)
+parent_directory = os.path.dirname(current_directory)
+
+repo_name = os.path.split(parent_directory)[1]
+
+# Don't execute pytket-cutensornet examples, execute everything else.
+if repo_name == "pytket-cutensornet":
+    nb_execution_mode = "off"
+else:
+    nb_execution_mode = "cache"
+# -------------------------------------------------------------------
 
 nb_execution_timeout = 120
 
