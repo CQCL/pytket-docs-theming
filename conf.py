@@ -22,6 +22,9 @@ extensions = [
     "myst_nb",
 ]
 
+# Suppress annoying warnings when building the pytket API docs
+suppress_warnings = ['Inline strong']
+
 autosectionlabel_prefix_document = True
 
 myst_enable_extensions = ["dollarmath", "html_image", "attrs_inline", "colon_fence"]
