@@ -23,11 +23,17 @@ extensions = [
 ]
 
 # Suppress annoying warnings when building the pytket API docs
-suppress_warnings = ['Inline strong']
+suppress_warnings = ["Inline strong"]
 
 autosectionlabel_prefix_document = True
 
-myst_enable_extensions = ["dollarmath", "html_image", "attrs_inline", "colon_fence", "amsmath"]
+myst_enable_extensions = [
+    "dollarmath",
+    "html_image",
+    "attrs_inline",
+    "colon_fence",
+    "amsmath",
+]
 
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#auto-generated-header-anchors
 myst_heading_anchors = 3
