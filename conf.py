@@ -20,6 +20,7 @@ extensions = [
     "enum_tools.autoenum",
     "sphinx.ext.autosectionlabel",
     "myst_nb",
+    "sphinxcontrib.googleanalytics",
 ]
 
 # Suppress annoying warnings when building the pytket API docs
@@ -114,3 +115,4 @@ exclude_patterns = [
 ]
 
 autodoc_member_order = "groupwise"
+googleanalytics_id = "G-YPQ1FTGDL3"
