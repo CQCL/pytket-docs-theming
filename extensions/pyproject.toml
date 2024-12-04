@@ -14,7 +14,6 @@ sphinx-copybutton = "^0.5.2"
 enum-tools = { extras = ["sphinx"], version = "^0.12.0" }
 furo = "^2024.8.6"
 myst-nb = "^1.1.1"
-sphinxcontrib_googleanalytics = "^0.4.0"
 
 [build-system]
 requires = ["poetry-core"]
