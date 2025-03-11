@@ -73,6 +73,7 @@ intersphinx_mapping = {
 }
 
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
+# The pytket-azure examples will also not be executable
 # -------------------------------------------------------------------
 
 # Get the current working directory
@@ -83,8 +84,8 @@ parent_directory = os.path.dirname(current_directory)
 
 repo_name = os.path.split(parent_directory)[1]
 
-# Don't execute pytket-cutensornet examples, execute everything else.
-if repo_name == "pytket-cutensornet":
+# Don't execute pytket-cutensornet + pytket-azure examples, execute everything else.
+if repo_name == "pytket-cutensornet" or "pytket-azure":
     nb_execution_mode = "off"
 else:
     nb_execution_mode = "cache"
