@@ -9,6 +9,7 @@ author = "Quantinuum"
 
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.coverage",
     "sphinx.ext.doctest",
     "sphinx.ext.napoleon",
     "sphinx_autodoc_typehints",
@@ -71,6 +72,12 @@ intersphinx_mapping = {
     "pytket-iqm": (ext_url + "pytket-iqm/", None),
     "pytket-stim": (ext_url + "pytket-stim/", None),
 }
+
+coverage_modules = ["pytket"]
+coverage_statistics_to_stdout = False
+coverage_show_missing_items = True
+coverage_ignore_classes = []
+coverage_ignore_functions = ["add_wasm", "add_wasm_to_reg"]
 
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
 # The pytket-azure examples will also not be executable
