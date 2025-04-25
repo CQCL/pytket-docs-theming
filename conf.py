@@ -4,7 +4,7 @@ import os
 # Configuration file for the Sphinx documentation builder.
 # See https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-copyright = "2024 Quantinuum"
+copyright = "2025 Quantinuum"
 author = "Quantinuum"
 
 extensions = [
