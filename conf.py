@@ -92,7 +92,7 @@ parent_directory = os.path.dirname(current_directory)
 repo_name = os.path.split(parent_directory)[1]
 
 # Don't execute pytket-cutensornet + pytket-azure examples, execute everything else.
-if repo_name == "pytket-cutensornet" or "pytket-azure":
+if repo_name in ("pytket-cutensornet", "pytket-azure"):
     nb_execution_mode = "off"
 else:
     nb_execution_mode = "cache"
