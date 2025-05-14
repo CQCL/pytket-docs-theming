@@ -33,11 +33,20 @@ nitpick_ignore = {
     ("py:class", "numpy.ndarray[dtype=complex128, shape=(4, 4), order='F']"),
     ("py:class", "numpy.ndarray[dtype=complex128, shape=(8, 8), order='F']"),
     ("py:class", "numpy.ndarray[dtype=complex128, shape=(*), order='C']"),
-    ("py:class", "scipy.sparse.csc_matrix"),
     ("py:class", "JSON"),
+    # numpy type aliases are documented as data rather than classes, so when 
+    # used in signatures sphinx cannot find the cross-reference as it only 
+    # looks for classes
+    ("py:class", "numpy.typing.ArrayLike"),
+    # similar for our own type aliases
+    ("py:class", "pytket.utils.distribution.T0"),
     # some other packages it is difficult to link to
     ("py:class", "pathlib._local.Path"),
     ("py:class", "jinja2.nodes.Output"),
+}
+
+autodoc_type_aliases = {
+    "npt.ArrayLike": "numpy.typing.ArrayLike",
 }
 
 autosectionlabel_prefix_document = True
@@ -66,9 +75,12 @@ ext_url = pytketdoc_base + "extensions/"
 
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
-    'numpy': ('https://numpy.org/doc/stable/', None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
     "sympy": ("https://docs.sympy.org/latest/", None),
-    "qiskit": ("https://docs.quantum.ibm.com/api/qiskit", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy/reference/", None),
+    "networkx": ("https://networkx.org/documentation/stable/", None),
+    "graphviz": ("https://graphviz.readthedocs.io/en/stable/", None),
+    "qiskit": ("https://docs.quantum.ibm.com/api/qiskit/", None),
     "pytket": (pytketdoc_base + "api-docs/", None),
     "pytket-qiskit": (ext_url + "pytket-qiskit/", None),
     "pytket-quantinuum": (
