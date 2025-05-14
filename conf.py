@@ -101,7 +101,7 @@ intersphinx_mapping = {
 }
 
 coverage_modules = ["pytket"]
-coverage_statistics_to_stdout = False
+coverage_statistics_to_stdout = True
 coverage_show_missing_items = True
 coverage_ignore_classes = []
 coverage_ignore_functions = ["add_wasm", "add_wasm_to_reg", "add_clexpr_from_logicexp"]
