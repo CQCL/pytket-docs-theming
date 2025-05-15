@@ -105,7 +105,7 @@ coverage_statistics_to_stdout = False
 coverage_show_missing_items = True
 coverage_ignore_classes = []
 coverage_ignore_functions = ["add_wasm", "add_wasm_to_reg", "add_clexpr_from_logicexp"]
-coverage_ignore_modules = ["pytket._tket.libtket", "pytket._tket.libtklog"]
+coverage_ignore_modules = ["libtket", "libtklog"]
 
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
 # The pytket-azure examples will also not be executable
