@@ -24,8 +24,30 @@ extensions = [
     "sphinxcontrib.googleanalytics",
 ]
 
-# Suppress annoying warnings when building the pytket API docs
-suppress_warnings = ["Inline strong"]
+nitpicky = True
+
+nitpick_ignore = {
+    # nanobind signatures for arrays and JSON do not generate references
+    ("py:class", "numpy.ndarray[dtype=complex128, shape=(*, *), order='F']"),
+    ("py:class", "numpy.ndarray[dtype=complex128, shape=(2, 2), order='F']"),
+    ("py:class", "numpy.ndarray[dtype=complex128, shape=(4, 4), order='F']"),
+    ("py:class", "numpy.ndarray[dtype=complex128, shape=(8, 8), order='F']"),
+    ("py:class", "numpy.ndarray[dtype=complex128, shape=(*), order='C']"),
+    ("py:class", "JSON"),
+    # numpy type aliases are documented as data rather than classes, so when 
+    # used in signatures sphinx cannot find the cross-reference as it only 
+    # looks for classes
+    ("py:class", "numpy.typing.ArrayLike"),
+    # similar for our own type aliases
+    ("py:class", "pytket.utils.distribution.T0"),
+    # some other packages it is difficult to link to
+    ("py:class", "pathlib._local.Path"),
+    ("py:class", "jinja2.nodes.Output"),
+}
+
+autodoc_type_aliases = {
+    "npt.ArrayLike": "numpy.typing.ArrayLike",
+}
 
 autosectionlabel_prefix_document = True
 
@@ -53,8 +75,12 @@ ext_url = pytketdoc_base + "extensions/"
 
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
     "sympy": ("https://docs.sympy.org/latest/", None),
-    "qiskit": ("https://docs.quantum.ibm.com/api/qiskit", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy/reference/", None),
+    "networkx": ("https://networkx.org/documentation/stable/", None),
+    "graphviz": ("https://graphviz.readthedocs.io/en/stable/", None),
+    "qiskit": ("https://docs.quantum.ibm.com/api/qiskit/", None),
     "pytket": (pytketdoc_base + "api-docs/", None),
     "pytket-qiskit": (ext_url + "pytket-qiskit/", None),
     "pytket-quantinuum": (
@@ -71,13 +97,15 @@ intersphinx_mapping = {
     "pytket-qulacs": (ext_url + "pytket-qulacs/", None),
     "pytket-iqm": (ext_url + "pytket-iqm/", None),
     "pytket-stim": (ext_url + "pytket-stim/", None),
+    "pytket-quest": (ext_url + "pytket-quest/", None),
 }
 
 coverage_modules = ["pytket"]
 coverage_statistics_to_stdout = False
 coverage_show_missing_items = True
 coverage_ignore_classes = []
-coverage_ignore_functions = ["add_wasm", "add_wasm_to_reg"]
+coverage_ignore_functions = ["add_wasm", "add_wasm_to_reg", "add_clexpr_from_logicexp"]
+coverage_ignore_modules = ["libtket", "libtklog"]
 
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
 # The pytket-azure examples will also not be executable
