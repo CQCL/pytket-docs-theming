@@ -40,13 +40,26 @@ nitpick_ignore = {
     ("py:class", "numpy.typing.ArrayLike"),
     # similar for our own type aliases
     ("py:class", "pytket.utils.distribution.T0"),
+    # qujax doesn't expose all of its classes
+    ("py:class", "qujax.utils.CallableArrayAndOptionalArray"),
+    ("py:class", "qujax.utils.CallableOptionalArray"),
     # some other packages it is difficult to link to
     ("py:class", "pathlib._local.Path"),
     ("py:class", "jinja2.nodes.Output"),
+    ("py:class", "numpy.float64"),
+    ("py:class", "qulacs_core.QuantumCircuit"),
+    # matplotlib not always installed and referred to using a string name in pytket-quantinuum
+    ("py:class", "matplotlib.figure.Figure"),
+}
+
+nitpick_ignore_regex = {
+    # cirq appears to no longer use sphinx, so every cross-ref will fail
+    ("py:.*", "cirq.*"),
 }
 
 autodoc_type_aliases = {
     "npt.ArrayLike": "numpy.typing.ArrayLike",
+    "cp.ndarray": "cupy.ndarray",
 }
 
 autosectionlabel_prefix_document = True
@@ -76,11 +89,20 @@ ext_url = pytketdoc_base + "extensions/"
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
     "numpy": ("https://numpy.org/doc/stable/", None),
+    "jax": ("https://docs.jax.dev/en/latest", None),
     "sympy": ("https://docs.sympy.org/latest/", None),
-    "scipy": ("https://docs.scipy.org/doc/scipy/reference/", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy/", None),
     "networkx": ("https://networkx.org/documentation/stable/", None),
-    "graphviz": ("https://graphviz.readthedocs.io/en/stable/", None),
-    "qiskit": ("https://docs.quantum.ibm.com/api/qiskit/", None),
+    "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
+    "qiskit": ("https://docs.quantum.ibm.com/api/qiskit", None),
+    "qiskit_ibm_runtime": ("https://docs.quantum.ibm.com/api/qiskit-ibm-runtime", None),
+    "qiskit_aer": ("https://qiskit.github.io/qiskit-aer", None),
+    "braket": ("https://amazon-braket-sdk-python.readthedocs.io/en/latest/", None),
+    "iqm": ("https://iqm-finland.github.io/iqm-client/", None),
+    "pennylane": ("https://docs.pennylane.ai/en/stable/", None),
+    "projectq": ("https://projectq.readthedocs.io/en/latest", None),
+    "pyquil": ("https://pyquil-docs.rigetti.com/en/stable", None),
+    "pyzx": ("https://pyzx.readthedocs.io/en/latest", None),
     "pytket": (pytketdoc_base + "api-docs/", None),
     "pytket-qiskit": (ext_url + "pytket-qiskit/", None),
     "pytket-quantinuum": (
@@ -100,13 +122,6 @@ intersphinx_mapping = {
     "pytket-quest": (ext_url + "pytket-quest/", None),
 }
 
-coverage_modules = ["pytket"]
-coverage_statistics_to_stdout = False
-coverage_show_missing_items = True
-coverage_ignore_classes = []
-coverage_ignore_functions = ["add_wasm", "add_wasm_to_reg", "add_clexpr_from_logicexp"]
-coverage_ignore_modules = ["libtket", "libtklog"]
-
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
 # The pytket-azure examples will also not be executable
 # -------------------------------------------------------------------
@@ -125,6 +140,19 @@ if repo_name in ("pytket-cutensornet", "pytket-azure"):
 else:
     nb_execution_mode = "cache"
 # -------------------------------------------------------------------
+
+if repo_name == "pytket":
+    coverage_modules = ["pytket"]
+    coverage_ignore_functions = ["add_wasm", "add_wasm_to_reg", "add_clexpr_from_logicexp"]
+    coverage_ignore_modules = ["libtket", "libtklog", "pytket.extensions", "pytket.qir"]
+elif repo_name == "pytket-qir":
+    coverage_modules = ["pytket.qir"]
+else:
+    extension_name = repo_name[7:] # remove "pytket-" prefix
+    coverage_modules = ["pytket.extensions." + extension_name]
+coverage_statistics_to_stdout = False
+coverage_show_missing_items = True
+coverage_ignore_classes = []
 
 nb_execution_timeout = 120
 
