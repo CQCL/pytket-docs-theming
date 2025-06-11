@@ -40,7 +40,10 @@ nitpick_ignore = {
     ("py:class", "numpy.typing.ArrayLike"),
     # similar for our own type aliases
     ("py:class", "pytket.utils.distribution.T0"),
-    # qujax doesn't expose all of its classes
+    # some packages don't expose all of their classes
+    ("py:class", "qiskit_aer.backends.aerbackend.AerBackend"),
+    ("py:class", "qiskit_ibm_runtime.models.backend_configuration.QasmBackendConfiguration"),
+    ("py:class", "qiskit_ibm_runtime.models.backend_properties.BackendProperties"),
     ("py:class", "qujax.utils.CallableArrayAndOptionalArray"),
     ("py:class", "qujax.utils.CallableOptionalArray"),
     # some other packages it is difficult to link to
