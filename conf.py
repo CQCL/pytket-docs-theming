@@ -42,6 +42,11 @@ nitpick_ignore = {
     ("py:class", "pytket.utils.distribution.T0"),
     # some packages don't expose all of their classes
     ("py:class", "qiskit_aer.backends.aerbackend.AerBackend"),
+    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRQueued"),
+    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRROngoing"),
+    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRFinished"),
+    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRError"),
+    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRCancelled"),
     ("py:class", "qiskit_ibm_runtime.models.backend_configuration.QasmBackendConfiguration"),
     ("py:class", "qiskit_ibm_runtime.models.backend_properties.BackendProperties"),
     ("py:class", "qujax.utils.CallableArrayAndOptionalArray"),
@@ -58,6 +63,8 @@ nitpick_ignore = {
 nitpick_ignore_regex = {
     # cirq appears to no longer use sphinx, so every cross-ref will fail
     ("py:.*", "cirq.*"),
+    # no online docs found for mtkahypar (used in pytket-aqt)
+    ("py:.*", "mtkahypar.*"),
 }
 
 autodoc_type_aliases = {
