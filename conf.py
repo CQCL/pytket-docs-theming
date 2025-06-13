@@ -56,6 +56,7 @@ nitpick_ignore = {
     ("py:class", "jinja2.nodes.Output"),
     ("py:class", "numpy.float64"),
     ("py:class", "qulacs_core.QuantumCircuit"),
+    ("py:class", "Value"), # pyqir.Value cannot be found
     # matplotlib not always installed and referred to using a string name in pytket-quantinuum
     ("py:class", "matplotlib.figure.Figure"),
 }
