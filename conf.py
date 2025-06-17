@@ -73,6 +73,12 @@ autodoc_type_aliases = {
     "cp.ndarray": "cupy.ndarray",
 }
 
+linkcheck_ignore = [
+    "https://github.com/CQCL/tket#how-to-build-tket-and-pytket",
+    "https://quantumcomputing.stackexchange.com/questions/tagged/pytket",
+    "https://tketusers.slack.com/join/shared_invite/zt-18qmsamj9-UqQFVdkRzxnXCcKtcarLRA#/shared-invite/email",
+]
+
 autosectionlabel_prefix_document = True
 
 myst_enable_extensions = [
