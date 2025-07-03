@@ -1,0 +1,20 @@
+[project]
+name = "pytket-docs-theming"
+version = "0.1.0"
+description = "Sphinx theming config for pytket"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "enum-tools[sphinx]>=0.13.0",
+    "furo>=2024.8.6",
+    "myst-nb>=1.2.0",
+    "sphinx>=8.2.3",
+    "sphinx-autodoc-typehints>=3.2.0",
+    "sphinxcontrib-googleanalytics>=0.5",
+    "quantinuum-sphinx",
+    "sphinx-copybutton>=0.5.2",
+]
+
+
+[tool.uv.sources]
+quantinuum-sphinx = { git = "https://github.com/CQCL/quantinuum-sphinx.git" }
