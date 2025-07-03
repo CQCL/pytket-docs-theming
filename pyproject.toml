@@ -1,7 +1,7 @@
 [project]
 name = "pytket-docs-theming"
 version = "0.1.0"
-description = "Add your description here"
+description = "Sphinx theming config for pytket"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
