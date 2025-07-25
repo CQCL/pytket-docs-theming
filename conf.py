@@ -138,6 +138,7 @@ intersphinx_mapping = {
     "pytket-iqm": (ext_url + "pytket-iqm/", None),
     "pytket-stim": (ext_url + "pytket-stim/", None),
     "pytket-quest": (ext_url + "pytket-quest/", None),
+    "pytket-aqt": ("https://cqcl.github.io/pytket-aqt/api/", None),
 }
 
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
